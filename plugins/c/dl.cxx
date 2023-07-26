@@ -4,9 +4,6 @@
 # include <vector>
 using namespace std;
 
-
-
-
 int Cdamerau_levenshtein_distance(string s, string t) {
 
     int len_s = s.length();

@@ -22,3 +22,14 @@ int longestCommonSubsequence(const vector<int>& nums1, const vector<int>& nums2)
     return dp[m][n];
 }
 
+vector<int> mass_search(vector<int> request, vector<vector<int>> all_indexes) {
+    vector<int> best_matches = {};
+    for (int i = 0; i < all_indexes.length(); i++) {
+        int lcs = longestCommonSubsequence(request, all_indexes[i]);
+        if (lcs < 11) {
+            best_matches.push_back(lcs);
+        }
+    }
+
+    return best_matches
+}

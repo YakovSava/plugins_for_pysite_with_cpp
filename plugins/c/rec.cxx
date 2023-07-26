@@ -6,18 +6,15 @@
 using namespace std;
 
 vector<int> func(vector<int> lst) {
-    // Создаем словарь, где ключ - это уникальные числа из списка, а значение - количество их повторений в списке
     unordered_map<int, int> count_map;
     for (const auto& num : lst) {
         count_map[num]++;
     }
     
-    // Сортируем уникальные числа по убыванию количества их повторений в списке
     sort(lst.begin(), lst.end(), [&count_map](int a, int b) {
         return count_map[a] > count_map[b];
     });
     
-    // Возвращаем отсортированный список
     return lst;
 }
 
