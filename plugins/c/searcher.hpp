@@ -31,5 +31,5 @@ vector<int> mass_search(vector<int> request, vector<vector<int>> all_indexes) {
         }
     }
 
-    return best_matches
+    return best_matches;
 }
