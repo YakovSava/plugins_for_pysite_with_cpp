@@ -38,3 +38,8 @@ int Cwrite(const char* filename, const char* lines) {
         return 1;
     }
 }
+
+bool exists(char* filename) {
+    ifstream file(filename);
+    return file.good();
+}
