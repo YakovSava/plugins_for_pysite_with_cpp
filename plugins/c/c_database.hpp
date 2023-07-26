@@ -60,7 +60,7 @@ map<string, int> load_database(string lines_str) {
     for (int i = 0; i < lines_vector.size(); i++) {
         string key, value;
 
-        istringstream iss(input);
+        istringstream iss(lines_vector[i]);
         getline(iss, key, "::");
         getline(iss, value);
 
