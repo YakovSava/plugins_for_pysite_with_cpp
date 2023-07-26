@@ -141,3 +141,30 @@ static PyObject* get_all_name_indexes(PyObject* self, PyObject* args) {
 
 	return pyList;
 }
+
+static PyMethodDef methods[] = {
+	{"read", read, METH_VARARGS, "Reading a file using the low-level C++ programming language"},
+	{"write", write, METH_VARARGS, "Writing to file using the low-level C++ programming language"},
+	{"exists_file", exists_file, METH_VARARGS, "Checking the existence of the file"},
+	{"longest_common_subsequence", longest_common_subsequence, METH_VARARGS, "Algorithm for finding the smallest length between lists"},
+	{"list_mass_search", list_mass_search, METH_VARARGS, "The algorithm of mass finding the smallest length between lists"},
+	{"dumps", dumps, METH_VARARGS, "Creating a special graph database"},
+	{"dump", dump, METH_VARARGS, "Creating and writing a special graph database to a file"},
+	{"loads", loads, METH_VARARGS, "Reading a special database (reading into a dictionary)"},
+	{"load", load, METH_VARARGS, "Reading from a special database file (reading into a dictionary)"},
+	{"get_all_indexes", get_all_indexes, METH_VARARGS, "Getting all possible product names"},
+	{"get_indexes_table", get_indexes_table, METH_VARARGS, "Getting all possible articles of goods"},
+	{NULL, NULL, 0, NULL} 
+};
+
+static struct PyModuleDef module = {
+    PyModuleDef_HEAD_INIT,
+    "algs",
+    "All possible algorithms that can be useful for creating a website",
+    -1,
+    methods
+};
+
+PyMODINIT_FUNC PyInit_algs(void) {
+    return PyModule_Create(&module);
+}
