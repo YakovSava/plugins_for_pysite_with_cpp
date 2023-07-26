@@ -35,7 +35,7 @@ map<string, int> get_table() {
 
 string dump_database(map<string, int> lines) {
     string dumper;
-    for (const auto& pair : myMap) {
+    for (const auto& pair : lines) {
         dumper += pair.first + "::" + to_string(pair.second);
     }
     return dumper;
