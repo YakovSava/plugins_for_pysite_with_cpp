@@ -39,7 +39,7 @@ int Cwrite(const char* filename, const char* lines) {
     }
 }
 
-bool exists(char* filename) {
+bool exists(const char* filename) {
     ifstream file(filename);
     return file.good();
 }

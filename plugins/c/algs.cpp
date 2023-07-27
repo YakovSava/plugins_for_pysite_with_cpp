@@ -5,7 +5,8 @@
 # include "searcher.hpp"
 
 static PyObject* write(PyObject *self, PyObject *args) {
-	PyObject *filename_obj, *data_obj;
+	PyObject* filename_obj; 
+	PyObject* data_obj;
 
 	if (!PyArg_ParseTuple(args, "UU", &filename_obj, &data_obj)) {
 		return NULL;
@@ -35,13 +36,14 @@ static PyObject* exists_file(PyObject* self, PyObject* args) {
 		return NULL;
 	}
 
-	bool result = exists(filename);
+	bool result = exists(str_to_string(filename));
 
 	return result ? Py_True : Py_False;
 }
 
 static PyObject* longest_common_subsequence(PyObject* self, PyObject* args) {
-	PyObject* first, second;
+	PyObject* first;
+	PyObject* second;
 
 	if (!PyArg_ParseTuple(args, "OO", &first, &second)) {
 		return NULL;
@@ -53,7 +55,8 @@ static PyObject* longest_common_subsequence(PyObject* self, PyObject* args) {
 }
 
 static PyObject* list_mass_search(PyObject* self, PyObject* args) {
-	PyObject* first, second;
+	PyObject* first;
+	PyObject* second;
 
 	if (!PyArg_ParseTuple(args, "OO", &first, &second)) {
 		return NULL;
@@ -62,7 +65,7 @@ static PyObject* list_mass_search(PyObject* self, PyObject* args) {
 	vector<vector<int>> lsts = {};
 	Py_ssize_t listSize = PyList_Size(second);
 	for (Py_ssize_t i = 0; i < listSize; ++i) {
-		PyObject* pyElement = PyList_GetItem(pyList, i);
+		PyObject* pyElement = PyList_GetItem(second, i);
 
 		lsts.push_back(list_to_vector(pyElement));
 	}
@@ -85,7 +88,8 @@ static PyObject* dumps(PyObject* self, PyObject* args) {
 }
 
 static PyObject* dump(PyObject* self, PyObject* args) {
-	PyObject* dict, filename;
+	PyObject* dict;
+	PyObject* filename;
 
 	if (!PyArg_ParseTuple(args, "OU", &dict, &filename)) {
 		return NULL;
@@ -152,7 +156,7 @@ static PyMethodDef methods[] = {
 	{"dump", dump, METH_VARARGS, "Creating and writing a special graph database to a file"},
 	{"loads", loads, METH_VARARGS, "Reading a special database (reading into a dictionary)"},
 	{"load", load, METH_VARARGS, "Reading from a special database file (reading into a dictionary)"},
-	{"get_all_indexes", get_all_indexes, METH_VARARGS, "Getting all possible product names"},
+	{"get_all_name_indexes", get_all_name_indexes, METH_VARARGS, "Getting all possible product names"},
 	{"get_indexes_table", get_indexes_table, METH_VARARGS, "Getting all possible articles of goods"},
 	{NULL, NULL, 0, NULL} 
 };
