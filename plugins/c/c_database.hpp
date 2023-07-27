@@ -2,6 +2,7 @@
 # include <map>
 # include <string>
 # include <sstream>
+# include <vector>
 using namespace std;
 
 int string_to_int(string word) {
@@ -13,17 +14,18 @@ int string_to_int(string word) {
 }
 
 vector<string> get_all_indexes() {
-    return {
-        "ssd", "pc", "motherboard",
-        "cable", "flash_USB", "power_unit",
-        "hdd", "corpus", "processor",
-        "ram", "nvme", "monitor",
-        "laptop", "windows_activation", "windows_install"
+    vector<string> vec = {\
+        "ssd", "pc", "motherboard",\
+        "cable", "flash_USB", "power_unit",\
+        "hdd", "corpus", "processor",\
+        "ram", "nvme", "monitor",\
+        "laptop", "windows_activation", "windows_install"\
     };
+    return vec;
 }
 
 map<string, int> get_table() {
-    vector<string> = get_all_indexes();
+    vector<string> indexes = get_all_indexes();
     map<string, int> table;
 
     for (int i = 0; i < indexes.size(); i++) {
@@ -61,7 +63,7 @@ map<string, int> load_database(string lines_str) {
         string key, value;
 
         istringstream iss(lines_vector[i]);
-        getline(iss, key, "::");
+        getline(iss, key, ':'); // Изменено на ':' вместо '::'
         getline(iss, value);
 
         db[key] = stoi(value);
