@@ -42,9 +42,9 @@ static PyObject *choice(PyObject *self, PyObject *args) {
 }
 
 static PyObject *_overclocking(PyObject *self, PyObject *args) {
-    srand(time(NULL));
-    for (int i = 0; i < rand(); i++) {for (int j = 0; j < rand(); j++) {srand(Crandint(0, 1000000));}}
+    int array[1];
 
+    srand(array[2]);
     return Py_None;
 }
 
