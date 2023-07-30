@@ -1,10 +1,14 @@
 # include <Python.h>
 # include <ctime>
 # include <cstdlib>
+# include <random>
 using namespace std;
 
 int Crandint(int range_min, int range_max) {
-	return ((double)rand() / RAND_MAX) * (range_max - range_min) + range_min;
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<int> dist(1, 100);
+	return dist(gen);
 }
 
 static PyObject *randint(PyObject *self, PyObject *args) {
@@ -41,17 +45,9 @@ static PyObject *choice(PyObject *self, PyObject *args) {
     return item;
 }
 
-static PyObject *_overclocking(PyObject *self, PyObject *args) {
-    int array[1];
-
-    srand(array[2]);
-    return Py_None;
-}
-
 static PyMethodDef methods[] = {
     {"randint", randint, METH_VARARGS, "Return random integer"},
     {"choice", choice, METH_VARARGS, "Return random element from list"},
-    {"_overclocking", _overclocking, METH_VARARGS, "Overclocking"},
     {NULL, NULL, 0, NULL}
 };
 

@@ -6,6 +6,6 @@ def choice(lst:list):
 	"Return random element from list"
 	...
 
-def _overclocking() -> None:
+def init() -> None:
 	"Overclocking"
 	...
