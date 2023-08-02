@@ -6,3 +6,4 @@ from c.algs import read, write, exists_file,\
     dumps, dump, load, loads,\
     get_all_indexes, get_indexes_table
 
+init()
