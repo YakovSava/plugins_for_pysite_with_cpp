@@ -2,7 +2,24 @@
 # include <ctime>
 # include <cstdlib>
 # include <random>
+# include <string>
 using namespace std;
+
+string char_to_string(char ch) {
+    string str(1, ch);
+    return str;
+}
+
+string get_ascii() {
+    string ascii_letters;
+    for (int i = 65; i < 90; i++) {
+        ascii_letters += char_to_string(static_cast<char>(i));
+    }
+    for (int i = 0; i < 10; i++) {
+        ascii_letters += to_string(i);
+    }
+    return ascii_letters;
+}
 
 int Crandint(int range_min, int range_max) {
     random_device rd;
@@ -45,9 +62,29 @@ static PyObject *choice(PyObject *self, PyObject *args) {
     return item;
 }
 
+static PyObject *get_code(PyObject *self, PyObject *args) {
+    int blocks;
+    int chars;
+
+    if (!PyArg_ParseTuple(args, "ii", &blocks, &chars)) {
+        return NULL;
+    }
+
+    string chr = "";
+    for (int i = 0; i < blocks; i++) {
+        for (int j = 0; j < chars; j++) {
+            string letter = get_ascii();
+            chr += letter[letter.length()];
+        }
+        chr += "-";
+    }
+    return PyUnicode_FromString(chr.c_str());
+}
+
 static PyMethodDef methods[] = {
     {"randint", randint, METH_VARARGS, "Return random integer"},
     {"choice", choice, METH_VARARGS, "Return random element from list"},
+    {"get_code", get_code, METH_VARARGS, "Return articul code"},
     {NULL, NULL, 0, NULL}
 };
 
