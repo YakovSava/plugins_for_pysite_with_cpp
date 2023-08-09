@@ -11,3 +11,6 @@ def search(request:str) -> list:
         if damerau_levenshtein_distance(title, request) * 0.8 < 25:
             result.append(title)
     return result
+
+def not_in_db(title:str) -> bool:
+    return title not in list(_database())
