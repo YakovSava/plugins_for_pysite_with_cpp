@@ -1,0 +1,1 @@
+from plugins.compiler import compile as _compile
