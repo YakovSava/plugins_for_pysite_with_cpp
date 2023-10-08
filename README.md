@@ -1,3 +1,3 @@
 # Background
-I wanted to sell computers, but it turned out that I couldn't do anything, but I wrote a website based on it. There are plugins for Python, they are mostly working, but if something is not working, and you need these plugins, for example, to organize an algorithm for searching on the site, then please contact me via issue or in *telegram*, I will try to help you.
+I wanted to sell computers, but it turned out that I couldn't do anything, but I wrote a website based on it. There are plugins for Python, they are mostly working, but if something is not working, and you need these plugins, for example, to organize an algorithm for searching on the site, then please contact me via issue or in [*telegram*](https://t.me/dc11gh58), I will try to help you.
 <blockquote> and if you pay me , I will do the work for you at all </blockquote>
